@@ -47,11 +47,11 @@ function getRank(chance) {
   if (chance >= 1.0) return 'F';
   if (chance >= 0.950) return 'D0';
   if (chance >= 0.870) return 'D+';
-  if (chance >= 0.770) return 'C0';
-  if (chance >= 0.650) return 'C+';
-  if (chance >= 0.500) return 'B0';
-  if (chance >= 0.330) return 'B+';
-  if (chance >= 0.140) return 'A0';
+  if (chance >= 0.760) return 'C0';
+  if (chance >= 0.630) return 'C+';
+  if (chance >= 0.470) return 'B0';
+  if (chance >= 0.290) return 'B+';
+  if (chance >= 0.080) return 'A0';
   return 'A+';
 }
 
@@ -131,7 +131,7 @@ tryBtn.addEventListener('click', () => {
   if (roll < currentChance) {
     //성공
     currentChance = Math.max(0, currentChance - decreaseRate); // 확률 감소
-    decreaseRate += 0.024
+    decreaseRate += 0.027
     playSound(successSound); // 성공 사운드 재생
   } else {
     currentChance = Math.max(0, currentChance + 0.01); // 확률 감소

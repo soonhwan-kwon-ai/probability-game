@@ -46,12 +46,12 @@ const titleMessages = {
 function getRank(chance) {
   if (chance >= 1.0) return 'F';
   if (chance >= 0.95) return 'D0';
-  if (chance >= 0.87) return 'D+';
-  if (chance >= 0.78) return 'C0';
-  if (chance >= 0.66) return 'C+';
-  if (chance >= 0.52) return 'B0';
-  if (chance >= 0.36) return 'B+';
-  if (chance >= 0.18) return 'A0';
+  if (chance >= 0.86) return 'D+';
+  if (chance >= 0.77) return 'C0';
+  if (chance >= 0.65) return 'C+';
+  if (chance >= 0.50) return 'B0';
+  if (chance >= 0.33) return 'B+';
+  if (chance >= 0.14) return 'A0';
   return 'A+';
 }
 

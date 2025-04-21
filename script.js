@@ -44,13 +44,13 @@ const titleMessages = {
 // 등급을 구하는 함수
 function getRank(chance) {
   if (chance >= 1.0) return 'F';
-  if (chance >= 0.950) return 'D0';
-  if (chance >= 0.870) return 'D+';
-  if (chance >= 0.760) return 'C0';
-  if (chance >= 0.620) return 'C+';
-  if (chance >= 0.450) return 'B0';
-  if (chance >= 0.260) return 'B+';
-  if (chance >= 0.040) return 'A0';
+  if (chance >= 0.9500) return 'D0';
+  if (chance >= 0.8690) return 'D+';
+  if (chance >= 0.7580) return 'C0';
+  if (chance >= 0.6160) return 'C+';
+  if (chance >= 0.4440) return 'B0';
+  if (chance >= 0.2420) return 'B+';
+  if (chance >= 0.0090) return 'A0';
   return 'A+';
 }
 
@@ -136,7 +136,7 @@ tryBtn.addEventListener('click', () => {
   if (roll < currentChance) {
     //성공
     currentChance = Math.max(0, currentChance - decreaseRate); // 확률 감소
-    decreaseRate += 0.029;
+    decreaseRate += 0.0305;
     playSound(successSound); // 성공 사운드 재생
   } else {
     currentChance = Math.max(0, currentChance + 0.01); // 확률 감소

@@ -1,5 +1,5 @@
 let currentChance = 1.0;  // 100%
-let attemptsLeft = 20;
+let attemptsLeft = 15;
 let decreaseRate = 0.05; // 첫 번째 성공 시 확률 감소 비율 (10%)
 
 const tryBtn = document.getElementById('tryBtn');
@@ -14,6 +14,20 @@ const titleMessageDiv = document.getElementById('titleMessage');  // 새로운 �
 const successSound = new Audio('sound/성공.mp3');
 const failSound = new Audio('sound/실패.mp3');
 const winSound = new Audio('sound/축하.mp3');
+
+//사운드 시간
+function playSound(sound) {
+  sound.pause();
+  sound.currentTime = 0;
+  sound.play().catch(e => {
+    console.warn('사운드 재생 실패:', e);
+  });
+
+  setTimeout(() => {
+    sound.pause();
+    sound.currentTime = 0;
+  }, 2000);
+}
 
 // 타이틀 메시지 객체
 const titleMessages = {
@@ -90,7 +104,7 @@ function showResult(text, color, animationClass) {
 // 게임 리셋 함수
 function resetGame() {
   currentChance = 1.0;
-  attemptsLeft = 20;
+  attemptsLeft = 15;
   decreaseRate = 0.05;  // 리셋 시 감소 비율 초기화
   resultDiv.textContent = '';
   resultDiv.style.color = '';
@@ -117,7 +131,7 @@ tryBtn.addEventListener('click', () => {
   if (roll < currentChance) {
     //성공
     currentChance = Math.max(0, currentChance - decreaseRate); // 확률 감소
-    decreaseRate += 0.022
+    decreaseRate += 0.024
     playSound(successSound); // 성공 사운드 재생
   } else {
     currentChance = Math.max(0, currentChance + 0.01); // 확률 감소

@@ -15,6 +15,8 @@ const successSound = new Audio('sound/성공.mp3');
 const failSound = new Audio('sound/실패.mp3');
 const winSound = new Audio('sound/축하.mp3');
 
+let isCleared = false; // A+ 달성 여부
+
 function playSound(sound) {
   sound.pause();
   sound.currentTime = 0;
@@ -71,6 +73,20 @@ function playSound(sound) {
 
 // 등급 업데이트 함수
 function updateRank() {
+  if (isCleared) {
+    rankDiv.textContent = '등급: A+';
+    titleMessageDiv.textContent = titleMessages['A+'];
+
+     // 기회가 남아 있으면 안내 문구
+     if (attemptsLeft > 0) {
+      finalMessageDiv.textContent = '도전 기회를 모두 소진해 주세요';
+    } else {
+      finalMessageDiv.textContent = '이걸 성공하네..';
+    }
+    finalMessageDiv.style.display = 'block';
+    return;
+  }
+
   const rank = getRank(currentChance);
   rankDiv.textContent = `등급: ${rank}`;
 
@@ -79,22 +95,19 @@ function updateRank() {
 
   // 마지막 등급일 경우 메시지 표시
   if (rank === 'A+') {
-    finalMessageDiv.textContent = '이걸 성공하네';
-    finalMessageDiv.style.display = 'block';
+    isCleared = true;
     playSound(winSound);
 
-    // 기회가 남아있는 경우 안내 메시지 추가
+    // 기회가 남아 있으면 안내 문구
     if (attemptsLeft > 0) {
       finalMessageDiv.textContent = '도전 기회를 모두 소진해 주세요';
-      finalMessageDiv.style.display = 'block';
+    } else {
+      finalMessageDiv.textContent = '이걸 성공하네..';
     }
+    finalMessageDiv.style.display = 'block';
   }
 
-  if(attemptsLeft === 0) {
-    resetBtn.style.display = 'inline-block'; // 다시 시작 버튼 표시
-  } else {
-    resetBtn.style.display = 'none';
-  }
+  resetBtn.style.display = attemptsLeft === 0 ? 'inline-block' : 'none';
 }
 
 // 결과 표시 함수
@@ -111,6 +124,7 @@ function resetGame() {
   currentChance = 1.0;
   attemptsLeft = 15;
   decreaseRate = 0.05;  // 리셋 시 감소 비율 초기화
+  isCleared = false;
   resultDiv.textContent = '';
   resultDiv.style.color = '';
   finalMessageDiv.textContent = '';

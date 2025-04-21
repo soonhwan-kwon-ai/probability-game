@@ -45,13 +45,13 @@ const titleMessages = {
 // 등급을 구하는 함수
 function getRank(chance) {
   if (chance >= 1.0) return 'F';
-  if (chance >= 0.95) return 'D0';
-  if (chance >= 0.86) return 'D+';
-  if (chance >= 0.77) return 'C0';
-  if (chance >= 0.64) return 'C+';
-  if (chance >= 0.50) return 'B0';
-  if (chance >= 0.33) return 'B+';
-  if (chance >= 0.14) return 'A0';
+  if (chance >= 0.950) return 'D0';
+  if (chance >= 0.870) return 'D+';
+  if (chance >= 0.770) return 'C0';
+  if (chance >= 0.650) return 'C+';
+  if (chance >= 0.500) return 'B0';
+  if (chance >= 0.330) return 'B+';
+  if (chance >= 0.140) return 'A0';
   return 'A+';
 }
 

@@ -80,9 +80,15 @@ function updateRank() {
 
   // 마지막 등급일 경우 메시지 표시
   if (rank === 'A+') {
-    finalMessageDiv.textContent = '🎉 당신은 성공했습니다!';
+    finalMessageDiv.textContent = '이걸 성공하네.. ';
     finalMessageDiv.style.display = 'block';
     playSound(winSound);
+
+    // 기회가 남아있는 경우 안내 메시지 추가
+    if (attemptsLeft > 0) {
+      finalMessageDiv.textContent = '도전 기회를 모두 소진해 주세요';
+      finalMessageDiv.style.display = 'block';
+    }
   }
 
   if(attemptsLeft === 0) {

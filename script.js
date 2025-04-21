@@ -56,7 +56,7 @@ function getRank(chance) {
 
 // 상태 업데이트 함수
 function updateStatus() {
-  const percent = Math.round(currentChance * 10000) / 100;
+  const percent = Math.floor(currentChance * 10000) / 100;
   statusP.textContent = `현재 확률: ${percent.toFixed(2)}% / 남은 기회: ${attemptsLeft}`;
 }
 

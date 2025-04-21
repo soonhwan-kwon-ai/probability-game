@@ -79,7 +79,7 @@ function updateRank() {
 
   // 마지막 등급일 경우 메시지 표시
   if (rank === 'A+') {
-    finalMessageDiv.textContent = '이걸 성공하네';
+    finalMessageDiv.textContent = '이걸 성공하네..';
     finalMessageDiv.style.display = 'block';
     playSound(winSound);
 

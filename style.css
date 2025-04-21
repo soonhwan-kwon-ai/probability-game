@@ -1,0 +1,95 @@
+/* 전체 페이지 레이아웃 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+  }
+
+  .title-message {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #444;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  /* 게임 내용이 담길 container */
+  .container {
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  
+  #status {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  #rank {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  #tryBtn, #resetBtn {
+    font-size: 18px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  #tryBtn:hover, #resetBtn:hover {
+    background-color: #45a049;
+  }
+  
+  #result {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  #finalMessage {
+    margin-top: 20px;
+    font-size: 24px;
+    color: gold;
+    font-weight: bold;
+    display: none;
+  }
+  
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+  }
+  
+  @keyframes pop {
+    0% { transform: scale(1); opacity: 0; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); }
+  }
+  
+  #result.animate-success {
+    animation: pop 0.4s ease;
+  }
+  
+  #result.animate-fail {
+    animation: shake 0.4s ease;
+  }
+  

@@ -136,7 +136,7 @@ tryBtn.addEventListener('click', () => {
   if (roll < currentChance) {
     //성공
     currentChance = Math.max(0, currentChance - decreaseRate); // 확률 감소
-    decreaseRate += 0.029
+    decreaseRate += 0.029;
     playSound(successSound); // 성공 사운드 재생
   } else {
     currentChance = Math.max(0, currentChance + 0.01); // 확률 감소
